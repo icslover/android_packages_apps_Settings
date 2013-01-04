@@ -40,9 +40,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 //    private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
 //    private static final String STATUS_BAR_CLOCK = "status_bar_show_clock";
-    private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 //    private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
-    private static final String COMBINED_BAR_AUTO_HIDE = "combined_bar_auto_hide";
+//    private static final String COMBINED_BAR_AUTO_HIDE = "combined_bar_auto_hide";
 //    private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_COLOR = "status_bar_color";
 
@@ -52,8 +51,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 //    private ListPreference mStatusBarCmSignal;
     private ColorPickerPreference mStatusBarColor;
 //    private CheckBoxPreference mStatusBarClock;
-    private CheckBoxPreference mStatusBarBrightnessControl;
-    private CheckBoxPreference mCombinedBarAutoHide;
+//    private CheckBoxPreference mCombinedBarAutoHide;
 //    private CheckBoxPreference mStatusBarNotifCount;
     private PreferenceCategory mPrefCategoryGeneral;
 
@@ -66,51 +64,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         PreferenceScreen prefSet = getPreferenceScreen();
 
 //        mStatusBarClock = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_CLOCK);
-        mStatusBarBrightnessControl = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
 //        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
 //        mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
         mStatusBarMaxNotif = (ListPreference) prefSet.findPreference(STATUS_BAR_MAX_NOTIF);
-        mCombinedBarAutoHide = (CheckBoxPreference) prefSet.findPreference(COMBINED_BAR_AUTO_HIDE);
+//        mCombinedBarAutoHide = (CheckBoxPreference) prefSet.findPreference(COMBINED_BAR_AUTO_HIDE);
 //        mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         mStatusBarColor = (ColorPickerPreference) prefSet.findPreference(STATUS_BAR_COLOR);
         mStatusBarColor.setOnPreferenceChangeListener(this);
         mStatusBarColor.setAlphaSliderEnabled(true);
 
-//        mStatusBarClock.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-//                Settings.System.STATUS_BAR_CLOCK, 1) == 1));
-        mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
-
-        try {
-            if (Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-                mStatusBarBrightnessControl.setEnabled(false);
-                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
-            }
-        } catch (SettingNotFoundException e) {
-        }
-
-/*        try {
-            if (Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.TIME_12_24) == 24) {
-                mStatusBarAmPm.setEnabled(false);
-                mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
-            }
-        } catch (SettingNotFoundException e) {
-        }
-
-        int statusBarAmPm = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_AM_PM, 2);
-        mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
-        mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
-        mStatusBarAmPm.setOnPreferenceChangeListener(this);
-
-        int statusBarBattery = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY, 0);
-        mStatusBarBattery.setValue(String.valueOf(statusBarBattery));
-        mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
-        mStatusBarBattery.setOnPreferenceChangeListener(this);
-*/
         int maxNotIcons = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.MAX_NOTIFICATION_ICONS, 2);
         mStatusBarMaxNotif.setValue(String.valueOf(maxNotIcons));
@@ -121,11 +83,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
-*/
+
         mCombinedBarAutoHide.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.COMBINED_BAR_AUTO_HIDE, 0) == 1));
 
-/*        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
+        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
         mStatusBarNotifCount.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
 */
@@ -133,11 +95,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         if (Utils.isTablet()) {
             mPrefCategoryGeneral.removePreference(mStatusBarColor);
-            mPrefCategoryGeneral.removePreference(mStatusBarBrightnessControl);
-/*            mPrefCategoryGeneral.removePreference(mStatusBarCmSignal);*/
         } else {
             mPrefCategoryGeneral.removePreference(mStatusBarMaxNotif);
-            mPrefCategoryGeneral.removePreference(mCombinedBarAutoHide);
         }
     }
 
@@ -182,30 +141,20 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         return false;
     }
 
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+/*    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-/*        if (preference == mStatusBarClock) {
-            value = mStatusBarClock.isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_CLOCK, value ? 1 : 0);
-            return true;
-        } else*/ if (preference == mStatusBarBrightnessControl) {
-            value = mStatusBarBrightnessControl.isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
-            return true;
-        } else if (preference == mCombinedBarAutoHide) {
+        if (preference == mCombinedBarAutoHide) {
             value = mCombinedBarAutoHide.isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.COMBINED_BAR_AUTO_HIDE, value ? 1 : 0);
             return true;
-/*        } else if (preference == mStatusBarNotifCount) {
+        } else if (preference == mStatusBarNotifCount) {
             value = mStatusBarNotifCount.isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
-            return true;*/
+            return true;
         }
         return false;
-    }
+    }*/
 }

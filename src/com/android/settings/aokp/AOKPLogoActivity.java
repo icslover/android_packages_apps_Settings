@@ -58,7 +58,7 @@ public class AOKPLogoActivity extends Activity {
         Typeface light = Typeface.create("sans-serif-light", Typeface.NORMAL);
         Typeface normal = Typeface.create("sans-serif", Typeface.BOLD);
 
-        String aokpversion = SystemProperties.get("ro.aokp.version");
+        String aokpversion = SystemProperties.get("ro.chimera.version");
 
         final float size = 14 * metrics.density;
         final LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -72,7 +72,7 @@ public class AOKPLogoActivity extends Activity {
         tv.setTextSize(1.25f*size);
         tv.setTextColor(0xFFFFFFFF);
         tv.setShadowLayer(4*metrics.density, 0, 2*metrics.density, 0x66000000);
-        tv.setText("Android Open Kang Project");
+        tv.setText("Chimera");
         view.addView(tv, lp);
    
         tv = new TextView(this);

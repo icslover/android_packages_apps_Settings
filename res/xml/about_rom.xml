@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tp="http://schemas.android.com/apk/res/com.android.settings">
+
+	<PreferenceCategory
+		android:key="devs"
+		android:title="@string/devs">
+		<com.android.settings.widgets.DeveloperPreference
+			android:title="Nelson"
+			tp:nameDev="Nelson"
+			tp:twitterHandle="ngiordano"
+			tp:donateLink="@string/donate_ngiordano" />
+
+		<com.android.settings.widgets.DeveloperPreference
+			android:title="Jay"
+			tp:nameDev="Jay"
+			tp:twitterHandle="82JayDub"
+			tp:donateLink="@string/donate_jay" />
+
+		<com.android.settings.widgets.DeveloperPreference
+			android:title="Pranav"
+			tp:nameDev="Pranav"
+			tp:twitterHandle="PranAwesome"
+			tp:donateLink="@string/donate_pranav" />
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		android:key="teampassion"
+		android:title="@string/teampassion">
+
+		<Preference
+			android:key="teampassion_group"
+			android:title="@string/teampassion_group"
+			android:summary="@string/tp_fb_group" />
+
+		<Preference
+			android:key="teampassion_google_group"
+			android:title="@string/teampassion_google_group"
+			android:summary="@string/tp_g_group" />
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		android:key="credits"
+		android:title="@string/credits">
+
+		<Preference
+			android:key="aokp_site"
+			android:title="@string/aokp"
+			android:summary="@string/aokp_site" />
+
+		<Preference
+			android:key="cm_site"
+			android:title="@string/cm"
+			android:summary="@string/cm_site" />
+
+		<Preference
+			android:key="pa_site"
+			android:title="@string/pa"
+			android:summary="@string/pa_site" />
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

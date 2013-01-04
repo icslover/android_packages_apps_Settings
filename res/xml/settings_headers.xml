@@ -17,6 +17,12 @@
 <preference-headers
         xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- About Rom -->
+    <header
+        android:id="@+id/about_rom"
+        android:fragment="com.android.settings.cyanogenmod.About"
+        android:icon="@drawable/ic_settings_teampassion"
+        android:title="@string/title_about" />
 
     <!-- WIRELESS and NETWORKS -->
     <header android:title="@string/header_category_wireless_networks" />
@@ -60,18 +66,34 @@
     <!-- INTERFACE -->
     <header android:title="@string/header_category_interface" />
 
-    <!-- Launcher -->
+    <!-- ROMControl -->
     <header
-        android:id="@+id/launcher_settings"
-        android:title="@string/launcher_settings_title"
-        android:icon="@drawable/ic_settings_cmlauncher" />
+        android:id="@+id/rom_control"
+	android:icon="@drawable/ic_settings_rom_control"
+        android:title="@string/rom_control_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.aokp.romcontrol"
+            android:targetClass="com.aokp.romcontrol.ROMControlActivity" />
+    </header>
 
-    <!-- Lock screen -->
+    <!-- System -->
     <header
-        android:id="@+id/lock_screen_settings"
-        android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
-        android:title="@string/lock_screen_title"
-        android:icon="@drawable/ic_settings_lockscreen" />
+        android:id="@+id/system_settings"
+        android:icon="@drawable/ic_settings_system"
+        android:fragment="com.android.settings.cyanogenmod.SystemSettings"
+        android:title="@string/system_settings_title" />
+
+     <!-- ParanoidAndroid Header -->
+    <header
+        android:id="@+id/paranoid_settings"
+        android:icon="@drawable/ic_settings_paranoid"
+        android:title="@string/paranoid_settings">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.paranoid.preferences"
+            android:targetClass="com.paranoid.preferences.PreferenceListActivity" />
+    </header>
 
     <!-- Themes -->
     <header
@@ -84,35 +106,19 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
-    <!-- System -->
+    <!-- Launcher -->
     <header
-        android:id="@+id/system_settings"
-        android:icon="@drawable/ic_settings_system"
-        android:fragment="com.android.settings.cyanogenmod.SystemSettings"
-        android:title="@string/system_settings_title" />
+        android:id="@+id/launcher_settings"
+        android:title="@string/launcher_settings_title"
+        android:icon="@drawable/ic_settings_cmlauncher" />
+
+    <!-- Lock screen -->
+    <header
+        android:id="@+id/lock_screen_settings"
+        android:fragment="com.android.settings.cyanogenmod.LockscreenInterface"
+        android:title="@string/lock_screen_title"
+        android:icon="@drawable/ic_settings_lockscreen" />
         
-     <!-- ParanoidAndroid Header -->
-    <header
-        android:id="@+id/paranoid_settings"
-        android:icon="@drawable/ic_settings_paranoid"
-        android:title="@string/paranoid_settings">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.paranoid.preferences"
-            android:targetClass="com.paranoid.preferences.PreferenceListActivity" />
-    </header>
-
-    <!-- ROMControl -->
-    <header
-        android:id="@+id/rom_control"
-	android:icon="@drawable/ic_settings_rom_control"
-        android:title="@string/rom_control_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.aokp.romcontrol"
-            android:targetClass="com.aokp.romcontrol.ROMControlActivity" />
-    </header>
-
     <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
 
@@ -257,13 +263,6 @@
         android:fragment="com.android.settings.DevelopmentSettings"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
-
-    <!-- Performance -->
-    <header
-        android:id="@+id/performance_settings"
-        android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
-        android:icon="@drawable/ic_settings_performance"
-        android:title="@string/performance_settings_title" />
 
     <!-- About Device -->
     <header

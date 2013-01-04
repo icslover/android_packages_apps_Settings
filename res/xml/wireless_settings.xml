@@ -85,4 +85,13 @@
             android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" />
     </PreferenceScreen>
 
+    <PreferenceScreen
+            android:title="@string/testing_phone_info"
+            android:summary="@string/summary_phone_information">
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.RadioInfo" />
+    </PreferenceScreen>
+
 </PreferenceScreen>

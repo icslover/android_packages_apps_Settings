@@ -27,6 +27,8 @@
     <!-- Device Info screen. Used for a status item's value when the proper value is not known -->
     <string name="device_info_default">Unknown</string>
 
+    <string name="summary_phone_information" product="default">View network and radio information</string>
+
     <!-- Category headings in left-pane header menu --> <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
     <string name="header_category_wireless_networks">WIRELESS &amp; NETWORKS</string>
@@ -824,6 +826,11 @@
 
     <!-- Title for preference that disables unlock security [CHAR LIMIT=22] -->
     <string name="unlock_set_unlock_circles_title">Circles</string>
+
+    <!-- Title for preference that disables unlock security [CHAR LIMIT=22] -->
+    <string name="unlock_set_unlock_blackberry_title">BlackBerry</string>
+    <!-- Summary for "Configure lockscreen" when security is disabled [CHAR LIMIT=45] -->
+    <string name="unlock_set_unlock_mode_blackberry">BlackBerry style</string>
 
     <!-- Summary for preference that disables unlock security [CHAR LIMIT=45]-->
     <string name="unlock_set_unlock_none_summary">No security</string>
@@ -4377,8 +4384,8 @@
     <string name="combined_bar_auto_hide_summary">Allow combined bar to hide when showing a fullscreen app</string>
 
     <!-- Navigation Bar  -->
-    <string name="navigation_bar_title">Navigation bar</string>
-    <string name="navigation_bar_button_category">Navigation bar controls</string>
+    <string name="navigation_bar_title">Tablet UI Keys</string>
+    <string name="navigation_bar_button_category">Tablet UI Button controls</string>
     <string name="navigation_bar_color_category">Navigation bar color</string>
     <string name="navigation_bar_editor_title">Navigation bar editor</string>
     <string name="navigation_bar_status_title">Tablet UI soft buttons</string>
@@ -4479,6 +4486,8 @@
     <!-- Status bar  -->
     <string name="combined_status_bar_title">@string/status_bar_title</string>
     <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_transparency_title">Statusbar Transparency</string>
+    <string name="status_bar_transparency_summary">Adjust statusbar transparency</string>
 <!--    <string name="status_bar_clock_title">Clock</string>  -->
     <string name="status_bar_general_title">General</string>
 <!--    <string name="status_bar_show_clock_title">Show clock</string>
@@ -4584,6 +4593,9 @@
     <string name="lockscreen_vibrate_enabled_title">Vibrate</string>
     <string name="lockscreen_vibrate_enabled_head">Vibrate when unlocking</string>
 
+    <string name="lockscreen_transparent_enabled_title">Transparent</string>
+    <string name="lockscreen_transparent_enabled_head">Transparent lockscreen background (requires reboot)</string>
+
     <!-- Lock screen misc. settings -->
     <string name="lockscreen_battery_status_title">Battery status</string>
     <string name="lockscreen_battery_status_charging">Only when charging</string>
@@ -4605,6 +4617,12 @@
     <string name="lockscreen_buttons_previous">Previous song</string>
     <string name="lockscreen_buttons_playpause">Play/Pause music</string>
     <string name="lockscreen_buttons_toggle_sound">Toggle sound</string>
+
+    <string name="circles_lock_cat_title">Circle lockscreen settings</string>
+    <string name="circles_lock_bg_color_title">Background color</string>
+    <string name="circles_lock_ring_color_title">Ring color</string>
+    <string name="circles_lock_halo_color_title">Halo color</string>
+    <string name="circles_lock_wave_color_title">Wave color</string>
 
     <!-- Profiles settings  -->
     <string name="profiles_settings_title">Profiles</string>
@@ -4880,9 +4898,8 @@
     <string name="dhcp_lease_24h">24 hours</string>
 
     <!-- Status bar notification count -->
-<!--    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display number of pending notifications</string>
--->
     <string name="increasing_ring_title">Ascending ringtone</string>
     <!-- Sound settings screen, the caption of the checkbox for making incoming calls increase in volume -->
     <string name="checkbox_increasing_ring">Enable</string>
@@ -4950,7 +4967,7 @@
     <string name="device_hostname">Device hostname</string>
 
     <!-- About phone screen,  setting option name-->
-    <string name="aokp_version">AOKP version</string>
+    <string name="chimera_version">Chimera version</string>
     <string name="cm_version">CyanogenMod version</string>
     <string name="pac_version">PAC version</string>
     <string name="mod_version_default">Unknown</string>
@@ -5012,7 +5029,7 @@
     <string name="category_spen_title">Stylus gestures</string>
     <string name="enable_subcat_title">Stylus</string>
     <string name="enable_spen_title_head">Enable stylus gestures</string>
-    <string name="enable_spen_summary_head">Allows stylus button swipe gestures to launch custom actions. Warning: Applications will not be able to receive input fired by holding stylus button.</string>
+    <string name="enable_spen_summary_head">Allows stylus button swipe gestures to launch custom actions. Warning: Applications will not be able to recieve input fired by holding stylus button.</string>
     <string name="gestures_subcat_title">Gestures</string>
     <string name="gestures_left_spen_title_head">Left swipe</string>
     <string name="gestures_left_spen_summary_head">Allows to launch custom action on left swipe</string>
@@ -5028,12 +5045,33 @@
     <string name="gestures_double_spen_summary_head">Allows to launch custom action on double tap</string>
 
     <!-- Gestures Options -->
-    <string name="gestures_action_empty">No action</string>
-    <string name="gestures_action_home">Go to home</string>
-    <string name="gestures_action_back">Emulate Back key</string>
-    <string name="gestures_action_menu">Emulate Menu key</string>
-    <string name="gestures_action_search">Invoke search</string>
-    <string name="gestures_action_recent">Recent applications</string>
+    <string name="gestures_action_empty">No Action</string>
+    <string name="gestures_action_home">Go To Home</string>
+    <string name="gestures_action_back">Emulate Back Key</string>
+    <string name="gestures_action_menu">Emulate Menu Key</string>
+    <string name="gestures_action_search">Invoke Search</string>
+    <string name="gestures_action_recent">Recent Applications</string>
+
+    <!-- About -->
+    <string name="title_about">About ROM</string>
+    <string name="devs">Developers</string>
+    <string name="credits">The talent</string>
+    <string name="teampassion">Team Passion</string>
+    <string name="teampassion_group">Team Passion Facebook Group</string>
+    <string name="teampassion_google_group">Team Passion Google+ Group</string>
+    <string name="tp_fb_group">https://www.facebook.com/</string>
+    <string name="tp_g_group">https://plus.google.com</string>
+    <string name="about_teampassion">About Team Passion</string>
+    <string name="about_teampassion_summary">@null</string>
+    <string name="aokp">AOKP Site</string>
+    <string name="aokp_site">http://aokp.co/</string>
+    <string name="cm">Cyanogenmod Site</string>
+    <string name="cm_site">http://www.cyanogenmod.org/</string>
+    <string name="pa">ParanoidAndroid Site</string>
+    <string name="pa_site">http://www.paranoid-rom.com/</string>
+    <string name="donate_ngiordano">http://bit.ly/rsdJsE</string>
+    <string name="donate_jay">http://bit.ly/IRWkWP</string>
+    <string name="donate_pranav">http://bit.ly/zR14jy</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
