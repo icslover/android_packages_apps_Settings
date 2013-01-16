@@ -61,6 +61,7 @@
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application android:label="@string/settings_label"
             android:icon="@mipmap/ic_launcher_settings"
@@ -1473,6 +1474,9 @@
 
         <activity android:name=".notificationlight.BatteryLightSettings" />
 
+        <activity android:name=".cyanogenmod.InterfaceSettings" />
+        <activity android:name=".cyanogenmod.PerformanceSettings" />
+
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
                 android:exported="true"
@@ -1503,6 +1507,11 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
         <activity android:name=".paranoid.PlatLogoActivity"
                 android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"
